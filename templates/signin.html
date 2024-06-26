@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlaCampinas</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">   
+
+</head>
+<body>
+
+    <div class = 'container'>
+        <h1> Jogadores: </h1>
+        
+        <ul>
+            {% for jogador in jogadores %}
+                <li> {{ jogador[0] }} - {{ jogador[1] }} anos - {{ jogador[2] }}</li>
+            { %endfor% }
+        
+        </ul>
+        <a href="{{url_for('novo_jogador')}}"><button class = 'add_player'> Cadastrar Jogador </button></a>
+        <a href="{{url_for('limpar_jogador')}}"><button class = 'clear_btn'> Limpar Lista de Jogadores </button></a>
+    
+    </div>
+    
+</body>
+</html>
