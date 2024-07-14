@@ -3,49 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão FlaCampinas</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">   
+    <title>FlaCampinas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class = first_nav>
+    <div class='container'>
+        <h1> Jogadores: </h1>
+        <ul>
+            {% for jogador in jogadores %}
+                <li> {{ jogador[1] }} - {{ jogador[2] }} anos - {{ jogador[3] }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('novo_jogador') }}"><button class='add_player'> Cadastrar Jogador </button></a>
+        <a href="{{ url_for('limpar_jogador') }}"><button class='clear_btn'> Limpar Lista de Jogadores </button></a>
+    </div>
 
-                <li> <h2> FlaCampinas </h2></li>
+    <div class = "container_teste">
+        <h1> Jogos </h1>
+        <ul>
+            { % for jogo in jogos % }
+                <li> {{ table_jogos[1] }} <button class = "access_match"></button> </li>
+            { % endfor % }
+        </ul>
 
-            </ul>
-            <ul class = second_nav>
-
-                <li><a href="#">Entrar</a></li>
-                
-                <li> <a href="#">Cadastrar</a></li>
-
-            </ul>
-        </nav>
-    </header>
-
-
-    <main>
-        <div id = box_login></div>
-
-            <img src="" alt= "foto_grupo_flacampinas">
-
-            <label for=""> Usuário: <input type="text" placeholder="Usuário"></label>
-
-            <label for=""> Senha: <input type="password" name="password" id="" placeholder="Senha"></label>
-
-        </div>
-
-        <div id = cadastro>
-
-            <p>Cade sua conta irmão?<a href="#"> Clica ai e cria! </a></p>
-
-        </div>
-
-
-    </main>
-
-
-<script src="scripts.js"></script>
+  <a href="{{url_for('novo_jogo')}}"><button class = "new_match"> Nova partida </button></a>
+    </div>
 </body>
 </html>
